@@ -40,6 +40,8 @@ fetch('emg_data.csv')
                 maintainAspectRatio: false,
                 scales: {
                     x: {
+                        type: 'linear',
+                        position: 'bottom',
                         title: {
                             display: true,
                             text: 'Index'

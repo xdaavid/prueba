@@ -21,6 +21,21 @@ fetch('emg_data.csv')
             tableBody.appendChild(row);
         }
 
+        // Calcular el promedio de los datos EMG
+        const sum = emg_data.reduce((acc, value) => acc + value, 0);
+        const average = sum / emg_data.length;
+
+        // Mostrar el promedio en el HTML
+        const averageElement = document.getElementById('average');
+        averageElement.textContent = `Average: ${average.toFixed(2)}`;
+
+        // Obtener los datos por encima del promedio
+        const aboveAverageData = emg_data.filter(value => value > average);
+
+        // Mostrar los datos por encima del promedio en el HTML
+        const aboveAverageElement = document.getElementById('above-average');
+        aboveAverageElement.textContent = `Data above average: ${aboveAverageData.join(', ')}`;
+
         // Crear el gráfico de líneas con Chart.js
         const ctx = document.getElementById('emg-chart').getContext('2d');
         new Chart(ctx, {
@@ -58,3 +73,4 @@ fetch('emg_data.csv')
         });
     })
     .catch(error => console.error('Error al cargar el archivo:', error));
+

@@ -5,8 +5,8 @@ fetch('emg_data.csv')
         // Dividir el archivo CSV en líneas
         const lines = data.split('\n');
         
-        // Obtener los datos EMG en formato numérico
-        const emg_data = lines.map(line => parseFloat(line));
+        // Obtener los primeros 50 datos EMG en formato numérico
+        const emg_data = lines.slice(0, 50).map(line => parseFloat(line));
 
         // Mostrar los datos en la tabla en la página web
         const tableBody = document.getElementById('emg-data-table');
@@ -73,4 +73,3 @@ fetch('emg_data.csv')
         });
     })
     .catch(error => console.error('Error al cargar el archivo:', error));
-

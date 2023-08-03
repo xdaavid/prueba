@@ -40,3 +40,14 @@ table tr:hover {
     max-width: 400px;
     margin: 20px auto;
 }
+
+#average, #above-average {
+    text-align: center;
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.chart-container canvas {
+    max-width: 100%;
+    height: auto;
+}

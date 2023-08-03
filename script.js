@@ -5,24 +5,23 @@ fetch('emg_data.csv')
         // Dividir el archivo CSV en líneas
         const lines = data.split('\n');
         
+        // Obtener los datos EMG en formato numérico
+        const emg_data = lines.map(line => parseFloat(line));
+
         // Mostrar los datos en la tabla en la página web
         const tableBody = document.getElementById('emg-data-table');
-        for (let i = 0; i < lines.length; i++) {
+        for (let i = 0; i < emg_data.length; i++) {
             const row = document.createElement('tr');
             const indexCell = document.createElement('td');
             const dataCell = document.createElement('td');
             indexCell.textContent = i + 1;
-
-            // Convertir el dato de texto a número (suponiendo que sean números en el CSV)
-            dataCell.textContent = parseFloat(lines[i]);
-
+            dataCell.textContent = emg_data[i];
             row.appendChild(indexCell);
             row.appendChild(dataCell);
             tableBody.appendChild(row);
         }
-    })
-    .catch(error => console.error('Error al cargar el archivo:', error));
-// Crear el gráfico de líneas con Chart.js
+
+        // Crear el gráfico de líneas con Chart.js
         const ctx = document.getElementById('emg-chart').getContext('2d');
         new Chart(ctx, {
             type: 'line',

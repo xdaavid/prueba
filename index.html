@@ -2,17 +2,24 @@
 <html>
 <head>
     <title>EMG Data</title>
+    <link rel="stylesheet" href="estilotabla.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <h1>EMG Data</h1>
-    <table>
-        <tr>
-            <th>Index</th>
-            <th>EMG Data</th>
-        </tr>
-        <tbody id="emg-data-table">
-        </tbody>
-    </table>
+    <div class="container">
+        <h1>EMG Data</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Index</th>
+                    <th>EMG Data</th>
+                </tr>
+            </thead>
+            <tbody id="emg-data-table">
+            </tbody>
+        </table>
+        <canvas id="emg-chart" width="400" height="200"></canvas>
+    </div>
 
     <script src="script.js"></script>
 </body>
